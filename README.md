@@ -5,18 +5,27 @@ React frontend and NestJS API backed by PostgreSQL.
 ## Requirements
 
 - Node.js 20 or newer
-- Docker Desktop with Docker Compose
+- Docker Desktop with Docker Compose, running before you start the app
+
+## Clone and install
+
+```bash
+git clone https://github.com/Chhay-Lyhour/Todolist.git
+cd Todolist
+npm install
+```
 
 ## Run locally
 
-From the project root:
+From the project root, start the app:
 
 ```bash
-npm install
 npm run dev
 ```
 
 `npm run dev` starts PostgreSQL in Docker, waits for it to become healthy, then starts the API and frontend. Open the Vite URL shown in the terminal (usually `http://localhost:5173`). The API is at `http://localhost:3000/api`. The first API startup runs the database migration, creating the `todos` and `profiles` tables and the starter profile.
+
+If port `5432` is already in use, start the app with `DB_PORT=5433 npm run dev` instead.
 
 To stop the app, press Ctrl+C. PostgreSQL stays running so its data remains available between runs. Stop PostgreSQL with `docker compose down`; its data remains in a Docker volume. To delete the database and all its data, run `docker compose down -v`.
 
